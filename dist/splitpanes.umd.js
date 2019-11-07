@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "fb15");
+/******/ 	return __webpack_require__(__webpack_require__.s = "fae3");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -157,7 +157,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ }),
 
-/***/ "fb15":
+/***/ "fae3":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -878,15 +878,87 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var splitpanes = (component.exports);
-// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
+// CONCATENATED MODULE: ./src/components/splitpanes/pane.js
+/* harmony default export */ var pane = ({
+  'name': 'pane',
+  'props': {
+    'size': {
+      'type': [Number, String],
+      'required': false,
+      'default': undefined
+    },
+    'minSize': {
+      'type': [Number, String],
+      'required': false,
+      'default': 0
+    },
+    'maxSize': {
+      'type': [Number, String],
+      'required': false,
+      'default': 100
+    }
+  },
+  'data': function data() {
+    return {
+      'style': {}
+    };
+  },
+  'computed': {
+    sizeNumber: function sizeNumber() {
+      return parseFloat(this.size);
+    },
+    minSizeNumber: function minSizeNumber() {
+      return parseFloat(this.minSize);
+    },
+    maxSizeNumber: function maxSizeNumber() {
+      return parseFloat(this.maxSize);
+    }
+  },
+  'watch': {
+    sizeNumber: function sizeNumber(size) {
+      this.$parent.requestUpdate({
+        'target': this,
+        size: size
+      });
+    },
+    minSizeNumber: function minSizeNumber(min) {
+      this.$parent.requestUpdate({
+        'target': this,
+        min: min
+      });
+    },
+    maxSizeNumber: function maxSizeNumber(max) {
+      this.$parent.requestUpdate({
+        'target': this,
+        max: max
+      });
+    }
+  },
+  'methods': {
+    update: function update(style) {
+      this.style = style;
+    }
+  },
+  render: function render(h) {
+    return h('div', {
+      'class': ['splitpanes__pane'],
+      'style': this.style
+    }, this.$slots.default);
+  }
+});
+// CONCATENATED MODULE: ./src/components/splitpanes/index.js
 
 
-/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (splitpanes);
+
+// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib-no-default.js
+/* concated harmony reexport Splitpanes */__webpack_require__.d(__webpack_exports__, "Splitpanes", function() { return splitpanes; });
+/* concated harmony reexport Pane */__webpack_require__.d(__webpack_exports__, "Pane", function() { return pane; });
+
 
 
 
 /***/ })
 
-/******/ })["default"];
+/******/ });
 });
 //# sourceMappingURL=splitpanes.umd.js.map
